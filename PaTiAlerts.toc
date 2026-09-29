@@ -1,0 +1,14 @@
+## Interface: 16001
+## Title: PaTiAlerts
+## Notes: What needs your attention right now: open problems from the other PaTi addons
+## Notes-deDE: Was gerade deine Aufmerksamkeit braucht: offene Probleme aus den anderen PaTi-Addons
+## Author: PaTi
+## Version: 0.1.0
+## SavedVariablesPerCharacter: PaTiAlertsDB
+
+Shared\Shared.xml
+Locales\enUS.lua
+Locales\deDE.lua
+Logic.lua
+State.lua
+PaTiAlerts.lua
