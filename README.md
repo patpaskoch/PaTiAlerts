@@ -38,7 +38,7 @@ they report while it is installed.
 - **Priorities:** critical, warnings, notes on/off
 - **Behaviour:** briefly highlight new alerts; hide automatically when empty
 - **General:** language, scale, window lock
-- **Window:** panel opacity (30–100 %) and snapping to other PaTi windows while dragging
+- **Window:** panel opacity (30–100 %)
 
 ## Commands
 `/pal` or `/palerts` — alone: show/hide · `settings` · `test` · `show` · `hide` · `lock` · `unlock` · `reset` (position) ·
