@@ -79,7 +79,9 @@ Die Meldungen der Producer (PaTiTank, PaTiAuras, PaTiHeal) werden in deren eigen
 
 - PaTiTank: LOST, DANGER, gleiche Nummer, Alert verschwindet, ohne PaTiAlerts → PT-TANK-090 bis PT-TANK-094
 - PaTiAuras: fehlender/auslaufender Selbst-Buff → PT-AURAS-064; Waffenbuff fehlt, ACTIVE entfernt, nie bei UNKNOWN →
-  PT-AURAS-057; Procs nie → PT-AURAS-072; ohne PaTiAlerts → PT-AURAS-110
+  PT-AURAS-057 (❌ FAIL 2026-09-30: Warnung bleibt bei aktivem Felsbeißer, Ursache upstream in PaTiAuras);
+  fehlende beobachtete Gruppenbuffs → PT-AURAS-112 bis PT-AURAS-116; Procs nie → PT-AURAS-072;
+  ohne PaTiAlerts → PT-AURAS-110
 - PaTiHeal: bannbarer Debuff, nach dem Bannen weg → PT-HEAL-094; ohne PaTiAlerts → PT-HEAL-100
 
 ## Combat / Sicherheit

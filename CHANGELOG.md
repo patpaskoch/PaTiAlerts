@@ -16,5 +16,8 @@ Format: `## [Unreleased]` / `## [x.y.z] - YYYY-MM-DD` with Added, Changed, Fixed
 - Test mode with one alert of each priority; `/pal`, `/palerts` with show, hide, test, lock, unlock, reset, settings,
   debug, version. English texts, German translation. MIT license.
 - Icon (golden alarm bell, PaTiSuite style): `Media/icon.tga` for the AddOns list, platform images in `assets/`.
+- PaTiAuras now also reports watched group buffs that a living, online member lacks: one warning per buff
+  ("Missing" solo, "Missing on N" in a group). No change in PaTiAlerts itself.
 ### Known Issues
-- Not tested in game yet.
+- Owner-confirmed 2026-09-30: `/pal test`. The weapon imbue warning stays while Rockbiter is active — cause upstream
+  in PaTiAuras (active imbue read as missing), no PaTiAlerts workaround. Details: `INGAME_TESTING.md`.

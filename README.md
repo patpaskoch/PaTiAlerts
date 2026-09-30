@@ -12,8 +12,9 @@ problem exists and disappears when it is solved. No combat log, no chat spam, no
 - One line per open problem, most urgent first: **red** critical, **yellow** warning, **blue** note
 - From **PaTiTank:** enemies you lost (`1 Kultist → Healer`, critical) or barely hold (warning) — with the same number
   that PaTiTank shows in its panel and above the enemy's nameplate
-- From **PaTiAuras:** your watched buffs and (Shaman) weapon imbues that are missing or expiring (warning).
-  "Unclear" data never shows up as missing
+- From **PaTiAuras:** your watched buffs and (Shaman) weapon imbues that are missing or expiring (warning), and
+  watched group buffs someone lacks — one line per buff (`Power Word: Fortitude · Missing on 2`), names stay in the
+  PaTiAuras tooltip. "Unclear" data, offline and dead members never show up as missing
 - From **PaTiHeal:** party members with a debuff you can dispel (note)
 - A new alert (or one that got more severe) is highlighted once, briefly; nothing blinks
 - Hides itself when there is nothing to show (while locked); unlocked or in test mode it stays so you can place it
@@ -58,7 +59,8 @@ end
 plain strings; `name` may be a restricted value (only displayed). Invalid data is dropped, never an error.
 
 ## Known limitations
-- Not yet tested in game; the producers' alerts depend on their own (partly unconfirmed) WoW APIs.
+- In-game test status: [`INGAME_TESTING.md`](INGAME_TESTING.md). The producers' alerts depend on their own (partly
+  unconfirmed) WoW APIs; Shaman weapon imbues currently read "missing" even while active (PaTiAuras).
 - No alerts from PaTiGroup, PaTiQuest or PaTiDungeon yet.
 
 ## License
