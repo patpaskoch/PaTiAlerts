@@ -4,6 +4,7 @@
 ## Notes-deDE: Was gerade deine Aufmerksamkeit braucht: offene Probleme aus den anderen PaTi-Addons
 ## Author: PaTi
 ## Version: 0.1.0
+## IconTexture: Interface\AddOns\PaTiAlerts\Media\icon
 ## SavedVariablesPerCharacter: PaTiAlertsDB
 
 Shared\Shared.xml

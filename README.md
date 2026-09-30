@@ -1,5 +1,7 @@
 # PaTiAlerts
 
+<img src="assets/icon-128.png" width="96" alt="PaTiAlerts icon">
+
 A small window for World of Warcraft: Forever (Interface 16001) that answers one question: **what needs my attention
 right now?** It lists the open problems the other PaTi addons report — and nothing else. An alert stays while the
 problem exists and disappears when it is solved. No combat log, no chat spam, no toasts, no automatic actions.
@@ -57,7 +59,6 @@ plain strings; `name` may be a restricted value (only displayed). Invalid data i
 ## Known limitations
 - Not yet tested in game; the producers' alerts depend on their own (partly unconfirmed) WoW APIs.
 - No alerts from PaTiGroup, PaTiQuest or PaTiDungeon yet.
-- No icon yet (design task).
 
 ## License
 MIT — see [LICENSE](LICENSE). Copyright (c) 2026 Patrick Koch.

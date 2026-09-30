@@ -12,5 +12,6 @@ Format: `## [Unreleased]` / `## [x.y.z] - YYYY-MM-DD` with Added, Changed, Fixed
   `PaTiAlertsDB` saves settings only — alerts are never saved; producers report them again after `/reload`.
 - Test mode with one alert of each priority; `/pal`, `/palerts` with show, hide, test, lock, unlock, reset, settings,
   debug, version. English texts, German translation. MIT license.
+- Icon (golden alarm bell, PaTiSuite style): `Media/icon.tga` for the AddOns list, platform images in `assets/`.
 ### Known Issues
-- Not tested in game yet. No icon yet (owner/design task).
+- Not tested in game yet.
