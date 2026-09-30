@@ -4,6 +4,9 @@ Format: `## [Unreleased]` / `## [x.y.z] - YYYY-MM-DD` with Added, Changed, Fixed
 
 ## [Unreleased] — 0.1.0
 ### Added
+- Window settings (PaTiShared): panel opacity 30–100 % (default 75 %, the header stays opaque) and snapping to other
+  PaTi windows while dragging (on by default; never in combat). The window registers itself for the optional
+  PaTiSuite control panel, which shows/hides it with this addon's own rules.
 - Window "What needs my attention right now?": one line per open problem, sorted critical → warning → note, stable
   order within a priority; a short one-time highlight for new or escalated alerts; auto-hide when empty (locked only).
 - Local API `PaTiAlertsAPI` version 1: `Sync(source, list)`, `Upsert(alert)`, `Remove(source, id)`,

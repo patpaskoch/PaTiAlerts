@@ -10,6 +10,8 @@ Logic.SOURCES = { "PaTiTank", "PaTiAuras", "PaTiHeal" } -- producers offered in 
 
 -- Position (point, relativePoint, x, y) is written by the PaTiShared window, not listed here.
 Logic.DEFAULTS = {
+    opacity = 0.75, -- panel body opacity (PaTiShared window; 0.3–1)
+    snapWindows = true, -- snap to other PaTi windows at the end of a drag
     locked = false,
     collapsed = false,
     scale = 1,

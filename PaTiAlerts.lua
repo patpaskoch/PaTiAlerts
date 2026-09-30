@@ -244,8 +244,10 @@ local function buildSettings()
         get = function() return window:IsLocked() end,
         set = function(locked) window:SetLocked(locked); render() end,
     }))
+    UI.AddWindowSettings(modal, window) -- panel opacity + snapping (PaTiShared)
     modal:Finish(function()
         Logic.RestoreDefaults(DB)
+        window:ApplyOpacity()
         UI.SetLanguage(DB.language)
         window:SetLocked(DB.locked)
         window:SetScale(DB.scale)
@@ -260,11 +262,17 @@ end
 
 -- Commands -------------------------------------------------------------------------------------
 
-local function setShown(shown)
+local function setShown(shown, quiet)
     hiddenByPlayer = not shown
     render()
-    if not shown then say("HIDDEN_HINT") end
+    if not shown and not quiet then say("HIDDEN_HINT") end
+    return true
 end
+
+-- Optional PaTiSuite control panel: the same rules as the commands, without chat lines (false = not possible now).
+-- "Shown" means "not hidden by you": an auto-hidden empty window still counts as on.
+window.suiteSetShown = function(shown) return setShown(shown, true) end
+window.suiteIsShown = function() return not hiddenByPlayer end
 
 local function toggleTestMode()
     testMode = not testMode
