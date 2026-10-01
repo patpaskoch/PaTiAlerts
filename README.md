@@ -24,6 +24,28 @@ problem exists and disappears when it is solved. No combat log, no chat spam, no
 PaTiAlerts is **optional**: PaTiTank, PaTiAuras and PaTiHeal work exactly the same without it. It only shows what
 they report while it is installed.
 
+## PaTiSuite
+
+This addon is part of the **PaTiSuite** — a collection of small addons for World of Warcraft: Forever.
+Each one is installed on its own and works on its own; none of them is needed by another.
+
+- [PaTiSuite](https://github.com/patpaskoch/PaTiSuite) – optional control panel to show and hide the PaTi windows
+- [PaTiHeal](https://github.com/patpaskoch/PaTiHeal) – healer party frames and click casting
+- [PaTiAuras](https://github.com/patpaskoch/PaTiAuras) – buff, aura and proc watcher
+- [PaTiTank](https://github.com/patpaskoch/PaTiTank) – tank HUD and aggro monitor
+- [PaTiGroup](https://github.com/patpaskoch/PaTiGroup) – raid markers, ready check and pull timer
+- [PaTiQuest](https://github.com/patpaskoch/PaTiQuest) – selected quest and its objectives
+- [PaTiDungeon](https://github.com/patpaskoch/PaTiDungeon) – instance, group and combat status
+- **PaTiAlerts** – one window for open problems *(this addon)*
+
+### Current sources
+
+- [PaTiTank](https://github.com/patpaskoch/PaTiTank) – enemies you lost or barely hold (same number as in PaTiTank and on the nameplate)
+- [PaTiAuras](https://github.com/patpaskoch/PaTiAuras) – your watched buffs, weapon imbues and group buffs that are missing or expiring
+- [PaTiHeal](https://github.com/patpaskoch/PaTiHeal) – party members with a debuff you can dispel
+
+PaTiAlerts is optional: PaTiTank, PaTiAuras and PaTiHeal work fully without it. [PaTiSuite](https://github.com/patpaskoch/PaTiSuite) can show and hide this window together with the others.
+
 ## Installation
 1. Download the release zip (`PaTiAlerts-<version>.zip`).
 2. Unpack it and copy the folder `PaTiAlerts` into `World of Warcraft/<client>/Interface/AddOns/`.
@@ -62,6 +84,10 @@ plain strings; `name` may be a restricted value (only displayed). Invalid data i
 - In-game test status: [`INGAME_TESTING.md`](INGAME_TESTING.md). The producers' alerts depend on their own (partly
   unconfirmed) WoW APIs; Shaman weapon imbues currently read "missing" even while active (PaTiAuras).
 - No alerts from PaTiGroup, PaTiQuest or PaTiDungeon yet.
+
+## Development
+
+Architecture, tests and engineering rules of the suite: [PaTiAdmin](https://github.com/patpaskoch/PaTiAdmin). PaTiAdmin is not a WoW addon — players do not install it. The shared UI code (PaTiShared) is already embedded in this addon's `Shared/` folder; there is nothing extra to install.
 
 ## License
 MIT — see [LICENSE](LICENSE). Copyright (c) 2026 Patrick Koch.
