@@ -18,6 +18,8 @@ Format: `## [Unreleased]` / `## [x.y.z] - YYYY-MM-DD` with Added, Changed, Fixed
 - Icon (golden alarm bell, PaTiSuite style): `Media/icon.tga` for the AddOns list, platform images in `assets/`.
 - PaTiAuras now also reports watched group buffs that a living, online member lacks: one warning per buff
   ("Missing" solo, "Missing on N" in a group). No change in PaTiAlerts itself.
+### Fixed
+- Settings: the first section title showed the key "GENERAL" (no text for it); now "General" / "Allgemein" (FOLLOW_UPS F30).
 ### Known Issues
 - Owner-confirmed 2026-09-30: `/pal test`. The weapon imbue warning stays while Rockbiter is active — cause upstream
   in PaTiAuras (active imbue read as missing), no PaTiAlerts workaround. Details: `INGAME_TESTING.md`.

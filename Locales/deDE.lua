@@ -4,6 +4,7 @@ ns.Locales = ns.Locales or {}
 local L = ns.Locales.deDE or {}
 ns.Locales.deDE = L
 
+L.GENERAL = "Allgemein"
 L.NO_ALERTS = "Nichts braucht gerade deine Aufmerksamkeit."
 L.MORE_ALERTS = "+%d weitere"
 L.SOURCES = "Quellen"
