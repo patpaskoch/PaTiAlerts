@@ -18,6 +18,8 @@ Format: `## [Unreleased]` / `## [x.y.z] - YYYY-MM-DD` with Added, Changed, Fixed
 - Icon (golden alarm bell, PaTiSuite style): `Media/icon.tga` for the AddOns list, platform images in `assets/`.
 - PaTiAuras now also reports watched group buffs that a living, online member lacks: one warning per buff
   ("Missing" solo, "Missing on N" in a group). No change in PaTiAlerts itself.
+### Changed
+- The window can also be moved in combat (it has no secure buttons; PaTiShared `SetCombatMovable`, hardening 2026-10-02). A broken saved position falls back to the default instead of breaking the login.
 ### Fixed
 - Hardening: a broken SavedVariables save (not a table, a broken schema or scale) no longer breaks the login; only the broken value is replaced, every valid setting (also `false`) stays, and the migration is idempotent (tests/robustness_spec.lua).
 - Settings: the first section title showed the key "GENERAL" (no text for it); now "General" / "Allgemein" (FOLLOW_UPS F30).

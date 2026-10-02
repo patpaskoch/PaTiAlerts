@@ -27,6 +27,7 @@ local PULSE_SECONDS, PULSE_ALPHA = 0.45, 0.35
 local PRIORITY_COLOR = { CRITICAL = "Danger", WARNING = "Warning", INFO = "Accent" }
 
 local window = UI.CreateWindow("PaTiAlertsFrame", "PaTiAlerts", WIDTH, UI.Sizes.HeaderHeight + 2 * LINE)
+window:SetCombatMovable(true) -- no secure children: may be dragged in combat too (PaTiShared)
 local content = CreateFrame("Frame", nil, window)
 content:SetPoint("TOPLEFT", 0, -UI.Sizes.HeaderHeight)
 content:SetPoint("BOTTOMRIGHT")
