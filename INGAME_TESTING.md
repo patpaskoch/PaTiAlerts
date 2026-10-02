@@ -24,7 +24,9 @@ Die Meldungen der Producer (PaTiTank, PaTiAuras, PaTiHeal) werden in deren eigen
 
 - [ ] PT-ALERTS-001 Fresh Install aus dem Release-ZIP: genau ein Ordner `PaTiAlerts/`, Addon lädt allein
 - [ ] PT-ALERTS-002 PaTiAlerts erscheint in der AddOn-Liste mit Beschreibung
-- [ ] PT-ALERTS-003 Icon (Glocke) in der AddOn-Liste korrekt, keine weiße oder fehlende Textur
+- [x] PT-ALERTS-003 Icon (Glocke) in der AddOn-Liste korrekt, keine weiße oder fehlende Textur
+  - ✅ VERIFIED 2026-10-02
+  - Owner: die Icons erscheinen im Spiel in der AddOn-Liste korrekt.
 - [ ] PT-ALERTS-004 Login ohne Lua-Fehler
 - [ ] PT-ALERTS-005 `/reload` ohne Lua-Fehler
 
