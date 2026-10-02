@@ -21,10 +21,12 @@ Logic.DEFAULTS = {
 
 -- Fills missing values, keeps every existing one (also false). Filters: [name] = false hides that source/priority.
 function Logic.Migrate(db)
-    db = db or {}
+    if type(db) ~= "table" then db = {} end -- nil or a broken save (string, number …): start fresh
     for key, value in pairs(Logic.DEFAULTS) do
         if db[key] == nil then db[key] = value end
     end
+    -- A broken scale would make SetScale fail on login: only a sane number is kept (saved values elsewhere stay).
+    if type(db.scale) ~= "number" or db.scale < 0.5 or db.scale > 2 then db.scale = Logic.DEFAULTS.scale end
     if type(db.sourceFilters) ~= "table" then db.sourceFilters = {} end
     if type(db.priorityFilters) ~= "table" then db.priorityFilters = {} end
     db.schema = Logic.SCHEMA

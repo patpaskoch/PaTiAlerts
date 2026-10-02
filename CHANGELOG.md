@@ -19,6 +19,7 @@ Format: `## [Unreleased]` / `## [x.y.z] - YYYY-MM-DD` with Added, Changed, Fixed
 - PaTiAuras now also reports watched group buffs that a living, online member lacks: one warning per buff
   ("Missing" solo, "Missing on N" in a group). No change in PaTiAlerts itself.
 ### Fixed
+- Hardening: a broken SavedVariables save (not a table, a broken schema or scale) no longer breaks the login; only the broken value is replaced, every valid setting (also `false`) stays, and the migration is idempotent (tests/robustness_spec.lua).
 - Settings: the first section title showed the key "GENERAL" (no text for it); now "General" / "Allgemein" (FOLLOW_UPS F30).
 ### Known Issues
 - Owner-confirmed 2026-09-30: `/pal test`. The weapon imbue warning stays while Rockbiter is active — cause upstream
