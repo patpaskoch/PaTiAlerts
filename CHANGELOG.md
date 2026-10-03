@@ -4,6 +4,7 @@ Format: `## [Unreleased]` / `## [x.y.z] - YYYY-MM-DD` with Added, Changed, Fixed
 
 ## [Unreleased] — 0.1.0
 ### Added
+- Themes (owner wish 2026-10-03): Settings → Window → Theme — Default (the PaTi look as before), WoForever (warm brown, gold/bronze) or Dracula (dark, purple/pink/cyan accents). Colours only; layout, secure buttons and behaviour are unchanged. Saved per character in this addon (`theme`, unknown values → Default); Restore Defaults returns to Default. PaTiSuite can switch all PaTi windows at once.
 - Window settings (PaTiShared): panel opacity 30–100 % (default 75 %, the header stays opaque). The window registers
   itself for the optional PaTiSuite control panel, which shows/hides it with this addon's own rules. (Snapping to
   other PaTi windows was tried and removed again: it did not work in the client.)
