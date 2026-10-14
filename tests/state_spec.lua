@@ -150,3 +150,33 @@ describe("Validation", function()
         assert.is_false(changed)
     end)
 end)
+
+describe("Click commands (cast, owner 2026-10-14)", function()
+    it("keeps a plain spell on you or a party member", function()
+        local State, store = new()
+        State.Upsert(store, "PaTiAuras", alert("a", "WARNING", { cast = { spell = "Blitzschlagschild", unit = "player" } }))
+        State.Upsert(store, "PaTiAuras", alert("b", "WARNING", { cast = { spell = "Seelenstärke", unit = "party3" } }))
+        local list = State.Visible(store)
+        assert.same({ spell = "Blitzschlagschild", unit = "player" }, list[1].cast)
+        assert.same({ spell = "Seelenstärke", unit = "party3" }, list[2].cast)
+    end)
+
+    it("drops a click on a target, focus or raid unit, a secret or overlong spell, or a broken table", function()
+        local State, store = new()
+        for index, cast in ipairs({ { spell = "X", unit = "target" }, { spell = "X", unit = "raid1" },
+            { spell = SECRET, unit = "player" }, { spell = ("x"):rep(61), unit = "player" }, { spell = "X", unit = SECRET },
+            "cast", SECRET }) do
+            State.Upsert(store, "PaTiAuras", alert("c" .. index, "WARNING", { cast = cast }))
+        end
+        local list = State.Visible(store)
+        assert.equal(7, #list) -- the alerts themselves stay
+        for _, item in ipairs(list) do assert.is_nil(item.cast) end
+    end)
+
+    it("counts a changed click command as a change", function()
+        local State, store = new()
+        State.Sync(store, "PaTiAuras", { alert("a", "WARNING", { cast = { spell = "A", unit = "party1" } }) })
+        local _, changed = State.Sync(store, "PaTiAuras", { alert("a", "WARNING", { cast = { spell = "A", unit = "party2" } }) })
+        assert.is_true(changed)
+    end)
+end)

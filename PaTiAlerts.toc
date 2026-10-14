@@ -12,4 +12,5 @@ Locales\enUS.lua
 Locales\deDE.lua
 Logic.lua
 State.lua
+Clicks.lua
 PaTiAlerts.lua

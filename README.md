@@ -18,7 +18,10 @@ problem exists and disappears when it is solved. No combat log, no chat spam, no
 - From **PaTiHeal:** party members with a debuff you can dispel (note)
 - A new alert (or one that got more severe) is highlighted once, briefly; nothing blinks
 - Hides itself when there is nothing to show (while locked); unlocked or in test mode it stays so you can place it
-- Rows are not clickable: to act on `1 Kultist`, click that enemy's nameplate marked "1" and taunt yourself
+- **Click a PaTiAuras row** (out of combat): a missing buff, weapon imbue or tracking is cast on you, a missing group
+  buff on the member PaTiAuras chose — exactly what a click on that line in PaTiAuras does. One click = one cast. In
+  combat the rows are not clickable (WoW does not let an addon change what a click casts while rows move)
+- Aggro rows are not clickable: to act on `1 Kultist`, click that enemy's nameplate marked "1" and taunt yourself
 - ••• menu: Settings, Lock, Collapse, Test Mode, Hide. Languages: English, Deutsch (others fall back to English)
 
 PaTiAlerts is **optional**: PaTiAggro, PaTiAuras and PaTiHeal work exactly the same without it. It only shows what
@@ -81,7 +84,9 @@ end
 ```
 `Sync(source, list)` replaces the source's alerts (missing ones disappear); also `Upsert(alert)`, `Remove(source, id)`,
 `ClearSource(source)`. `source`, `id`, `kind`, `priority` (`CRITICAL` / `WARNING` / `INFO`), `text`, `detail` must be
-plain strings; `name` may be a restricted value (only displayed). Invalid data is dropped, never an error.
+plain strings; `name` may be a restricted value (only displayed). Optional `cast = { spell = "<cast name>", unit =
+"player" | "party1".."party4" }` makes the row clickable out of combat (one click = that cast); any other unit, a
+secret or overlong spell drops only the click. Invalid data is dropped, never an error.
 
 ## Known limitations
 - In-game test status: [`INGAME_TESTING.md`](INGAME_TESTING.md). The producers' alerts depend on their own (partly

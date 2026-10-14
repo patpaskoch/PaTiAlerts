@@ -102,3 +102,20 @@ Die Meldungen der Producer (PaTiAggro, PaTiAuras, PaTiHeal) werden in deren eige
 - [ ] PT-ALERTS-090 Zusammen mit allen PaTi-Addons geladen: kein Lua-Fehler
 - [ ] PT-ALERTS-091 Keine Slash-Command-Kollision: `/pal` und `/palerts` antworten nur PaTiAlerts
 - [ ] PT-ALERTS-092 Eigene Einstellungen speichern nur PaTiAlerts-Werte; Fenster erscheint in PaTiSuite
+
+## Anklickbare Zeilen (2026-10-14)
+
+- [ ] PT-ALERTS-094 Außerhalb des Kampfes: Zeile „Blitzschlagschild · Fehlt“ (PaTiAuras) anklicken → genau dieser Zauber
+  wird auf dich gewirkt; Tooltip „Klick: … zaubern“; Maus-Hover hebt die Zeile hervor
+  - MANUAL RETEST REQUIRED
+- [ ] PT-ALERTS-095 Gruppenbuff fehlt (z. B. Seelenstärke · Fehlt bei 1) anklicken → Buff auf den Spieler, den PaTiAuras
+  gewählt hat (Tooltip „auf <Name>“); kein Zielwechsel
+  - MANUAL RETEST REQUIRED
+- [ ] PT-ALERTS-096 Im Kampf: kein Klick wirkt etwas, kein Lua-Fehler, kein „Aktion blockiert“; nach dem Kampf sind die
+  Zeilen wieder anklickbar
+  - MANUAL RETEST REQUIRED
+- [ ] PT-ALERTS-097 Fenster verschieben, Größe ändern, einklappen: Klickflächen liegen danach wieder genau über den
+  Zeilen; eingeklappt oder Test-Modus: nichts anklickbar; Aggro- und Bann-Zeilen sind nie anklickbar
+  - MANUAL RETEST REQUIRED
+- [ ] PT-ALERTS-098 Fenster im Kampf verschieben und automatisch aus-/einblenden geht weiterhin ohne Fehler
+  - MANUAL RETEST REQUIRED

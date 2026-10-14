@@ -7,7 +7,9 @@ ns.State = State
 
 State.PRIORITIES = { "CRITICAL", "WARNING", "INFO" }
 local RANK = { CRITICAL = 1, WARNING = 2, INFO = 3 }
-local LIMITS = { source = 40, id = 120, kind = 40, priority = 20, text = 80, detail = 40, name = 60 }
+local LIMITS = { source = 40, id = 120, kind = 40, priority = 20, text = 80, detail = 40, name = 60, spell = 60 }
+-- Units a click may cast on (owner 2026-10-14): you and your party — never a target, focus, raid or enemy token.
+State.CAST_UNITS = { player = true, party1 = true, party2 = true, party3 = true, party4 = true }
 
 -- isSecret(value) -> true for restricted values (issecretvalue in WoW), injected so this file stays pure.
 function State.New(isSecret)
@@ -18,6 +20,16 @@ end
 local function plain(store, value, field)
     if store.isSecret(value) or type(value) ~= "string" or value == "" then return nil end
     return value:sub(1, LIMITS[field])
+end
+
+-- Optional click command `cast = { spell, unit }` (PaTiAuras, 2026-10-14): a plain spell name and an allowed unit,
+-- else nothing (the row then only displays). PaTiAlerts arms a secure button with it out of combat only.
+local function castOf(store, cast)
+    if store.isSecret(cast) or type(cast) ~= "table" then return nil end
+    local spell, unit = plain(store, cast.spell, "spell"), cast.unit
+    if spell and #cast.spell > LIMITS.spell then return nil end -- a cut spell name would be another spell
+    if not spell or store.isSecret(unit) or not State.CAST_UNITS[unit] then return nil end
+    return { spell = spell, unit = unit }
 end
 
 -- Producer table → clean alert, or nil if unusable. Keys (source, id, kind, priority) must be plain strings;
@@ -38,6 +50,7 @@ function State.Clean(store, source, alert)
     if not store.isSecret(number) and type(number) == "number" and number >= 1 and number <= 99 and number % 1 == 0 then
         clean.number = number
     end
+    clean.cast = castOf(store, alert.cast)
     if not clean.text and clean.name == nil then return nil end -- nothing to show
     return clean
 end
@@ -109,6 +122,8 @@ function State.Same(a, b)
     for _, field in ipairs({ "priority", "kind", "text", "detail", "number" }) do
         if a[field] ~= b[field] then return false end
     end
+    local ca, cb = a.cast or {}, b.cast or {}
+    if ca.spell ~= cb.spell or ca.unit ~= cb.unit then return false end
     return rawequal(a.name, b.name)
 end
 

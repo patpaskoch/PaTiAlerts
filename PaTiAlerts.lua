@@ -1,8 +1,8 @@
 -- PaTiAlerts: "What needs my attention right now?" A small window listing the open problems other PaTi addons
 -- report. Optional receiver only: no addon depends on it, it depends on none. Alerts stay while the problem exists.
--- Display only: rows are not clickable (no row does a safe action yet), nothing is cast, targeted or dispelled.
+-- Rows only display, except where the producer offers a click (Clicks.lua: PaTiAuras buffs, out of combat only).
 local addonName, ns = ...
-local UI, L, Logic, State = ns.UI, ns.UI.L, ns.Logic, ns.State
+local UI, L, Logic, State, Clicks = ns.UI, ns.UI.L, ns.Logic, ns.State, ns.Clicks
 
 local DB
 local testMode = false
@@ -27,12 +27,13 @@ local PULSE_SECONDS, PULSE_ALPHA = 0.45, 0.35
 local PRIORITY_COLOR = { CRITICAL = "Danger", WARNING = "Warning", INFO = "Accent" }
 
 local window = UI.CreateWindow("PaTiAlertsFrame", "PaTiAlerts", WIDTH, UI.Sizes.HeaderHeight + 2 * LINE)
+Clicks.Init(window)
 window:SetCombatMovable(true) -- no secure children: may be dragged in combat too (PaTiShared)
 local content = CreateFrame("Frame", nil, window)
 content:SetPoint("TOPLEFT", 0, -UI.Sizes.HeaderHeight)
 content:SetPoint("BOTTOMRIGHT")
 
--- Rows are plain frames without mouse handling: nothing here looks clickable because nothing is.
+-- Rows are plain frames without mouse handling; a clickable row gets a secure button laid over it (Clicks.lua).
 local rows = {}
 for index = 1, MAX_ROWS + 1 do -- the last row can carry "+N more"
     local top = UI.Spacing.SM + (index - 1) * LINE
@@ -106,6 +107,9 @@ local function fillTestStore()
     })
 end
 
+local clickRetry = CreateFrame("Frame") -- one more render on the next frame (see the end of render)
+clickRetry:Hide()
+
 local function render()
     if not DB then return end
     local list = State.Visible(testMode and testStore or store,
@@ -145,7 +149,22 @@ local function render()
     -- Nothing open: only the header bar stays (owner 2026-10-14: no "nothing needs your attention" line).
     window:SetHeight((DB.collapsed or used == 0) and UI.Sizes.HeaderHeight
         or UI.Sizes.HeaderHeight + UI.Spacing.SM + used * LINE + UI.Spacing.SM)
+    -- Clicks: only real alerts (never test mode) in a shown, expanded window; out of combat (Clicks.Arm).
+    local clickable = {}
+    if not testMode and not DB.collapsed and window:IsShown() then
+        for index, alert in ipairs(list) do
+            if index > MAX_ROWS then break end
+            if alert.cast then clickable[#clickable + 1] = { frame = rows[index], cast = alert.cast, text = alert.text } end
+        end
+    end
+    if Clicks.Arm(clickable) then
+        clickRetry.tries = 0
+    elseif (clickRetry.tries or 0) < 3 then -- a row was not laid out yet: once more on the next frames
+        clickRetry.tries = (clickRetry.tries or 0) + 1
+        clickRetry:Show()
+    end
 end
+clickRetry:SetScript("OnUpdate", function(self) self:Hide(); render() end)
 
 -- Producers may report many times per second; the window is drawn once, on the next frame.
 local renderer = CreateFrame("Frame")
@@ -229,7 +248,7 @@ local function buildSettings()
     modal:AddRow("SCALE", UI.CreateDropdown(modal, 170, {
         items = function() return scales end,
         get = function() return DB.scale end,
-        set = function(scale) DB.scale = scale; window:SetScale(scale) end, -- no secure frames: fine in combat
+        set = function(scale) DB.scale = scale; window:SetScale(scale); render() end, -- render: click buttons follow
     }))
     modal:AddControls(UI.CreateCheckbox(modal, "LOCK_WINDOW", {
         get = function() return window:IsLocked() end,
@@ -280,6 +299,7 @@ end
 local function resetPosition()
     DB.point, DB.relativePoint, DB.x, DB.y = nil, nil, nil, nil
     window:Attach(DB, 0, 200)
+    render() -- the click buttons follow the window
 end
 
 local function printDebug()
@@ -293,6 +313,7 @@ local function printDebug()
             PaTiAlertsAPI.version),
         ("WoW %s (build %s, interface %s) · locale %s · UI language %s"):format(tostring(version), tostring(build),
             tostring(interface), GetLocale(), UI.GetLanguage()),
+        ("Click buttons armed %d · combat %s"):format(Clicks.Count(), InCombatLockdown() and "yes" or "no"),
         ("Alerts: %s · shown %d · test mode %s · hidden by you %s · auto-hide %s"):format(
             #parts > 0 and table.concat(parts, ", ") or "none",
             #State.Visible(store, { sources = DB.sourceFilters, priorities = DB.priorityFilters }),
@@ -336,14 +357,25 @@ end)
 
 local events = CreateFrame("Frame")
 events:RegisterEvent("PLAYER_LOGIN")
-events:SetScript("OnEvent", function()
-    PaTiAlertsDB = Logic.Migrate(PaTiAlertsDB)
-    DB = PaTiAlertsDB
-    UI.SetLanguage(DB.language)
-    window:Attach(DB, 0, 200)
-    window:SetScale(DB.scale)
-    render() -- producers that loaded earlier may already have reported; the others report on their next refresh
+events:RegisterEvent("PLAYER_REGEN_DISABLED")
+events:RegisterEvent("PLAYER_REGEN_ENABLED")
+events:SetScript("OnEvent", function(_, event)
+    if event == "PLAYER_REGEN_DISABLED" then
+        Clicks.Arm({}) -- combat starts: clear the buttons while still allowed (the holder hides them anyway)
+    elseif event == "PLAYER_REGEN_ENABLED" then
+        if DB then render() end -- combat over: re-arm the buttons for the rows as they are now
+    else
+        PaTiAlertsDB = Logic.Migrate(PaTiAlertsDB)
+        DB = PaTiAlertsDB
+        UI.SetLanguage(DB.language)
+        window:Attach(DB, 0, 200)
+        window:SetScale(DB.scale)
+        render() -- producers that loaded earlier may already have reported; the others report on their next refresh
+    end
 end)
+-- Dragging the window: the click buttons do not follow it; clear them and lay them out again where it stops.
+window.header:HookScript("OnDragStart", function() Clicks.Arm({}) end)
+window.header:HookScript("OnDragStop", function() if DB then render() end end)
 UI.OnLanguageChanged(function()
     if testMode then fillTestStore() end
     render()

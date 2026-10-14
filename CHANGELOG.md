@@ -4,6 +4,10 @@ Format: `## [Unreleased]` / `## [x.y.z] - YYYY-MM-DD` with Added, Changed, Fixed
 
 ## [Unreleased] — 0.1.0
 ### Added
+- Clickable rows (owner 2026-10-14): a PaTiAuras alert for a missing buff, weapon imbue, tracking or group buff can be
+  clicked out of combat — one click casts exactly that spell (on you, or for a group buff on the member PaTiAuras
+  chose). In combat the rows are not clickable. API: optional `cast = { spell, unit }` field (units player, party1-4).
+  `/pal debug` shows how many click buttons are armed.
 - Themes (owner wish 2026-10-03): Settings → Window → Theme — Default (the PaTi look as before), WoForever (warm brown, gold/bronze) or Dracula (dark, purple/pink/cyan accents). Colours only; layout, secure buttons and behaviour are unchanged. Saved per character in this addon (`theme`, unknown values → Default); Restore Defaults returns to Default. PaTiSuite can switch all PaTi windows at once.
 - Window settings (PaTiShared): panel opacity 30–100 % (default 75 %, the header stays opaque). The window registers
   itself for the optional PaTiSuite control panel, which shows/hides it with this addon's own rules. (Snapping to
