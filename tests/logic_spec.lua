@@ -11,7 +11,7 @@ describe("Logic.Migrate", function()
         assert.same({ false, false, 1, "auto", true, true }, { db.locked, db.collapsed, db.scale, db.language, db.autoHide, db.pulseNew })
         assert.same({}, db.sourceFilters)
         assert.same({}, db.priorityFilters)
-        assert.equal(1, db.schema)
+        assert.equal(2, db.schema)
         assert.is_nil(db.alerts) -- alerts are never saved
     end)
 
@@ -22,6 +22,13 @@ describe("Logic.Migrate", function()
             { db.autoHide, db.pulseNew, db.locked, db.collapsed, db.scale, db.x, db.point })
         assert.same({ PaTiHeal = false }, db.sourceFilters)
         assert.same({ INFO = false }, db.priorityFilters)
+    end)
+
+    it("moves a PaTiTank source filter to PaTiAggro (schema 2, the rename 2026-10-14)", function()
+        local db = load().Migrate({ schema = 1, sourceFilters = { PaTiTank = false, PaTiHeal = true } })
+        assert.same({ PaTiAggro = false, PaTiHeal = true }, db.sourceFilters)
+        db = load().Migrate({ schema = 2, sourceFilters = { PaTiAggro = true } })
+        assert.same({ PaTiAggro = true }, db.sourceFilters)
     end)
 
     it("repairs broken filter tables", function()

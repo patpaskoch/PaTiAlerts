@@ -20,6 +20,8 @@ Format: `## [Unreleased]` / `## [x.y.z] - YYYY-MM-DD` with Added, Changed, Fixed
 - PaTiAuras now also reports watched group buffs that a living, online member lacks: one warning per buff
   ("Missing" solo, "Missing on N" in a group). No change in PaTiAlerts itself.
 ### Changed
+- PaTiTank was renamed **PaTiAggro** (2026-10-14): the source filter and the test alerts use the new name; a source
+  you had switched off as PaTiTank stays off as PaTiAggro (settings schema 2).
 - The window can also be moved in combat (it has no secure buttons; PaTiShared `SetCombatMovable`, hardening 2026-10-02). A broken saved position falls back to the default instead of breaking the login.
 ### Fixed
 - Hardening: a broken SavedVariables save (not a table, a broken schema or scale) no longer breaks the login; only the broken value is replaced, every valid setting (also `false`) stays, and the migration is idempotent (tests/robustness_spec.lua).

@@ -96,7 +96,7 @@ end
 -- Test mode shows one alert of each priority from a separate store; real alerts are kept meanwhile.
 local testStore = State.New(isSecret)
 local function fillTestStore()
-    State.Sync(testStore, "PaTiTank", { { id = "test:1", priority = "CRITICAL", kind = "AGGRO_LOST", number = 1,
+    State.Sync(testStore, "PaTiAggro", { { id = "test:1", priority = "CRITICAL", kind = "AGGRO_LOST", number = 1,
         text = L.TEST_ENEMY, detail = L.TEST_HEALER } })
     State.Sync(testStore, "PaTiAuras", {
         { id = "test:aura", priority = "WARNING", kind = "AURA_MISSING", text = L.TEST_AURA, detail = L.TEST_MISSING },

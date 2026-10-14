@@ -8,7 +8,7 @@ Diese Datei dokumentiert ausschließlich Tests im echten WoW-Client.
 Automatisierte Tests, CI und Code Review zählen NICHT als Ingame-Verifikation.
 Regeln und Eintragen von Ergebnissen: [PaTiAdmin/docs/TESTING.md](https://github.com/patpaskoch/PaTiAdmin/blob/main/docs/TESTING.md#in-game-test-files).
 
-Die Meldungen der Producer (PaTiTank, PaTiAuras, PaTiHeal) werden in deren eigener INGAME_TESTING.md geführt
+Die Meldungen der Producer (PaTiAggro, PaTiAuras, PaTiHeal) werden in deren eigener INGAME_TESTING.md geführt
 (Abschnitt „Integration“ unten verweist darauf) — ein Test hat genau eine Quelle.
 
 ## Legende
@@ -58,7 +58,7 @@ Die Meldungen der Producer (PaTiTank, PaTiAuras, PaTiHeal) werden in deren eigen
 
 ## Filter
 
-- [ ] PT-ALERTS-040 Quelle PaTiTank an/aus
+- [ ] PT-ALERTS-040 Quelle PaTiAggro (früher PaTiTank) an/aus; eine früher ausgeschaltete Quelle PaTiTank bleibt als PaTiAggro aus
 - [ ] PT-ALERTS-041 Quelle PaTiAuras an/aus
 - [ ] PT-ALERTS-042 Quelle PaTiHeal an/aus
 - [ ] PT-ALERTS-043 Prioritäten kritisch / Warnungen / Hinweise einzeln an/aus
@@ -79,7 +79,7 @@ Die Meldungen der Producer (PaTiTank, PaTiAuras, PaTiHeal) werden in deren eigen
 
 ## Integration (Tests in den Producer-Dateien)
 
-- PaTiTank: LOST, DANGER, gleiche Nummer, Alert verschwindet, ohne PaTiAlerts → PT-TANK-090 bis PT-TANK-094
+- PaTiAggro (früher PaTiTank): LOST, DANGER, gleiche Nummer, Alert verschwindet, ohne PaTiAlerts → PT-TANK-090 bis PT-TANK-094
 - PaTiAuras: fehlender/auslaufender Selbst-Buff → PT-AURAS-064; Waffenbuff fehlt, ACTIVE entfernt, nie bei UNKNOWN →
   PT-AURAS-057 (❌ FAIL 2026-09-30: Warnung bleibt bei aktivem Felsbeißer, Ursache upstream in PaTiAuras);
   fehlende beobachtete Gruppenbuffs → PT-AURAS-112 bis PT-AURAS-116; Procs nie → PT-AURAS-072;

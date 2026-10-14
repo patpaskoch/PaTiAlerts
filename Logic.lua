@@ -4,9 +4,9 @@ local _, ns = ...
 local Logic = {}
 ns.Logic = Logic
 
-Logic.SCHEMA = 1
+Logic.SCHEMA = 2
 Logic.SCALES = { 0.8, 0.9, 1, 1.1, 1.25, 1.5 }
-Logic.SOURCES = { "PaTiTank", "PaTiAuras", "PaTiHeal" } -- producers offered in the source filter (V1)
+Logic.SOURCES = { "PaTiAggro", "PaTiAuras", "PaTiHeal" } -- producers offered in the source filter (V1)
 
 -- Position (point, relativePoint, x, y) is written by the PaTiShared window, not listed here.
 Logic.DEFAULTS = {
@@ -32,6 +32,11 @@ function Logic.Migrate(db)
     if db.theme ~= "default" and db.theme ~= "woforever" and db.theme ~= "dracula" then db.theme = "default" end
     if type(db.sourceFilters) ~= "table" then db.sourceFilters = {} end
     if type(db.priorityFilters) ~= "table" then db.priorityFilters = {} end
+    -- Schema 2 (2026-10-14): PaTiTank was renamed PaTiAggro; a hidden PaTiTank source stays hidden under its new name.
+    if (tonumber(db.schema) or 0) < 2 and db.sourceFilters.PaTiTank ~= nil then
+        if db.sourceFilters.PaTiAggro == nil then db.sourceFilters.PaTiAggro = db.sourceFilters.PaTiTank end
+        db.sourceFilters.PaTiTank = nil
+    end
     db.schema = Logic.SCHEMA
     return db
 end
