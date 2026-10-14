@@ -42,6 +42,11 @@ Die Meldungen der Producer (PaTiAggro, PaTiAuras, PaTiHeal) werden in deren eige
 - [ ] PT-ALERTS-016 Collapse/Expand über •••, Zustand bleibt nach `/reload`
 - [ ] PT-ALERTS-017 Einstellungen öffnen (`/pal settings` und •••) und speichern
 - [ ] PT-ALERTS-018 Auto-Hide: gesperrt und leer → Fenster verschwindet; entsperrt oder im Test Mode bleibt es
+- [ ] PT-ALERTS-093 Keine offenen Meldungen (nicht automatisch ausgeblendet): nur die Kopfzeile „PaTiAlerts“, kein Text
+  „Nichts braucht gerade deine Aufmerksamkeit.“
+  - Owner 2026-10-14: Text überflüssig → entfernt
+  - 🔧 FIX IMPLEMENTED 2026-10-14
+  - MANUAL RETEST REQUIRED
 - [ ] PT-ALERTS-019 Panel-Deckkraft 30–100 %: nur der Hintergrund ändert sich
 - [ ] PT-ALERTS-020 Keine Einrast-Einstellung mehr, Fenster frei verschiebbar
 - [ ] PT-ALERTS-021 `/pal reset` setzt die Position zurück

@@ -114,17 +114,6 @@ local function render()
     window:SetTestMode(testMode)
     content:SetShown(not DB.collapsed)
     local used = 0
-    if #list == 0 then
-        used = 1
-        local row = rows[1]
-        row.key = nil
-        row.bar:Hide()
-        row.number:SetText("")
-        row.text:SetText(L.NO_ALERTS)
-        row.text:SetTextColor(UI.Color("TextMuted"))
-        row.detail:SetText("")
-        row:Show()
-    end
     for index, alert in ipairs(list) do
         if index > MAX_ROWS then break end
         used = index
@@ -153,7 +142,8 @@ local function render()
         row:Show()
     end
     for index = used + 1, #rows do rows[index].key = nil; rows[index]:Hide() end
-    window:SetHeight(DB.collapsed and UI.Sizes.HeaderHeight
+    -- Nothing open: only the header bar stays (owner 2026-10-14: no "nothing needs your attention" line).
+    window:SetHeight((DB.collapsed or used == 0) and UI.Sizes.HeaderHeight
         or UI.Sizes.HeaderHeight + UI.Spacing.SM + used * LINE + UI.Spacing.SM)
 end
 
