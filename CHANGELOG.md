@@ -4,6 +4,8 @@ Format: `## [Unreleased]` / `## [x.y.z] - YYYY-MM-DD` with Added, Changed, Fixed
 
 ## [Unreleased] — 0.1.0
 ### Added
+- Theme **Soft Fantasy** (PaTiShared, owner wish 2026-10-19): calm slate blue, grey and violet with a muted
+  lavender accent — the fourth choice in the settings and in PaTiSuite.
 - Clickable rows (owner 2026-10-14): a PaTiAuras alert for a missing buff, weapon imbue, tracking or group buff can be
   clicked out of combat — one click casts exactly that spell (on you, or for a group buff on the member PaTiAuras
   chose). In combat the rows are not clickable. API: optional `cast = { spell, unit }` field (units player, party1-4).
