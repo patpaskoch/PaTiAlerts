@@ -53,9 +53,14 @@ Each one is installed on its own and works on its own; none of them is needed by
 PaTiAlerts is optional: PaTiAggro, PaTiAuras and PaTiHeal work fully without it. [PaTiSuite](https://github.com/patpaskoch/PaTiSuite) can show and hide this window together with the others.
 
 ## Installation
-1. Download the release zip (`PaTiAlerts-<version>.zip`).
-2. Unpack it and copy the folder `PaTiAlerts` into `World of Warcraft/<client>/Interface/AddOns/`.
-3. Start WoW and enable PaTiAlerts (plus any of PaTiAggro, PaTiAuras, PaTiHeal) in the AddOns list.
+
+![PaTiAlerts – three-step installation guide](assets/installation_en.svg)
+
+1. 📥 **Download** – Open [GitHub Releases](https://github.com/patpaskoch/PaTiAlerts/releases) and download the `PaTiAlerts-<version>.zip` file under **Assets** (not **Source code (zip)**).
+2. 📂 **Extract & Copy** – Right-click the ZIP, select **Extract All**, then copy the extracted `PaTiAlerts` folder into the WoW Forever client's `Interface/AddOns/` folder. No renaming is needed.
+3. ☑️ **Enable in Game** – Start WoW, open the **AddOns** menu at character selection, tick **PaTiAlerts**, and click **OK**.
+
+**Optional:** Install PaTiAggro, PaTiAuras, or PaTiHeal as alert sources; PaTiAlerts also loads on its own.
 
 ## First steps
 - `/pal test` shows one example of each priority — move the window where you look while playing, then lock it
