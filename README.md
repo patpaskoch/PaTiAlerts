@@ -2,6 +2,8 @@
 
 <img src="assets/icon-128.png" width="96" alt="PaTiAlerts icon">
 
+## What is PaTiAlerts?
+
 A small window for World of Warcraft: Forever (Interface 16001) that answers one question: **what needs my attention
 right now?** It lists the open problems the other PaTi addons report — and nothing else. An alert stays while the
 problem exists and disappears when it is solved. No combat log, no chat spam, no toasts, no automatic actions.
@@ -9,6 +11,7 @@ problem exists and disappears when it is solved. No combat log, no chat spam, no
 > Status: 0.1.0, in development, not yet released. Not yet tested in game.
 
 ## Features
+
 - One line per open problem, most urgent first: **red** critical, **yellow** warning, **blue** note
 - From **PaTiAggro:** enemies you lost (`1 Kultist → Healer`, critical) or barely hold (warning) — with the same number
   that PaTiAggro shows in its panel and above the enemy's nameplate
@@ -26,6 +29,30 @@ problem exists and disappears when it is solved. No combat log, no chat spam, no
 
 PaTiAlerts is **optional**: PaTiAggro, PaTiAuras and PaTiHeal work exactly the same without it. It only shows what
 they report while it is installed.
+
+## Installation
+
+![PaTiAlerts – three-step installation guide](assets/installation_en.svg)
+
+1. 📥 **Download** – Open [GitHub Releases](https://github.com/patpaskoch/PaTiAlerts/releases) and download the `PaTiAlerts-<version>.zip` file under **Assets** (not **Source code (zip)**).
+2. 📂 **Extract & Copy** – Right-click the ZIP, select **Extract All**, then copy the extracted `PaTiAlerts` folder into the WoW Forever client's `Interface/AddOns/` folder. No renaming is needed.
+3. ☑️ **Enable in Game** – Start WoW, open the **AddOns** menu at character selection, tick **PaTiAlerts**, and click **OK**.
+
+**Optional:** Install PaTiAggro, PaTiAuras, or PaTiHeal as alert sources; PaTiAlerts also loads on its own.
+
+## Getting Started
+
+- `/pal test` shows one example of each priority — move the window where you look while playing, then lock it
+- `/pal settings` to choose sources and priorities
+
+## Settings
+
+`/pal settings` or ••• → Settings:
+- **Sources:** PaTiAggro, PaTiAuras, PaTiHeal on/off (only what PaTiAlerts shows; the addons keep working)
+- **Priorities:** critical, warnings, notes on/off
+- **Behaviour:** briefly highlight new alerts; hide automatically when empty
+- **General:** language, scale, window lock
+- **Window:** panel opacity (30–100 %)
 
 ## PaTiSuite
 
@@ -52,33 +79,13 @@ Each one is installed on its own and works on its own; none of them is needed by
 
 PaTiAlerts is optional: PaTiAggro, PaTiAuras and PaTiHeal work fully without it. [PaTiSuite](https://github.com/patpaskoch/PaTiSuite) can show and hide this window together with the others.
 
-## Installation
-
-![PaTiAlerts – three-step installation guide](assets/installation_en.svg)
-
-1. 📥 **Download** – Open [GitHub Releases](https://github.com/patpaskoch/PaTiAlerts/releases) and download the `PaTiAlerts-<version>.zip` file under **Assets** (not **Source code (zip)**).
-2. 📂 **Extract & Copy** – Right-click the ZIP, select **Extract All**, then copy the extracted `PaTiAlerts` folder into the WoW Forever client's `Interface/AddOns/` folder. No renaming is needed.
-3. ☑️ **Enable in Game** – Start WoW, open the **AddOns** menu at character selection, tick **PaTiAlerts**, and click **OK**.
-
-**Optional:** Install PaTiAggro, PaTiAuras, or PaTiHeal as alert sources; PaTiAlerts also loads on its own.
-
-## First steps
-- `/pal test` shows one example of each priority — move the window where you look while playing, then lock it
-- `/pal settings` to choose sources and priorities
-
-## Settings
-`/pal settings` or ••• → Settings:
-- **Sources:** PaTiAggro, PaTiAuras, PaTiHeal on/off (only what PaTiAlerts shows; the addons keep working)
-- **Priorities:** critical, warnings, notes on/off
-- **Behaviour:** briefly highlight new alerts; hide automatically when empty
-- **General:** language, scale, window lock
-- **Window:** panel opacity (30–100 %)
-
 ## Commands
+
 `/pal` or `/palerts` — alone: show/hide · `settings` · `test` · `show` · `hide` · `lock` · `unlock` · `reset` (position) ·
 `debug` · `version`
 
 ## For addon authors (PaTiSuite)
+
 Local API, version 1 — call it only if it exists, never depend on it:
 ```lua
 local api = _G.PaTiAlertsAPI
@@ -94,6 +101,7 @@ plain strings; `name` may be a restricted value (only displayed). Optional `cast
 secret or overlong spell drops only the click. Invalid data is dropped, never an error.
 
 ## Known limitations
+
 - In-game test status: [`INGAME_TESTING.md`](INGAME_TESTING.md). The producers' alerts depend on their own (partly
   unconfirmed) WoW APIs; Shaman weapon imbues currently read "missing" even while active (PaTiAuras).
 - No alerts from PaTiGroup, PaTiLead, PaTiRota, PaTiQuest or PaTiDungeon yet.
@@ -103,4 +111,5 @@ secret or overlong spell drops only the click. Invalid data is dropped, never an
 Architecture, tests and engineering rules of the suite: [PaTiAdmin](https://github.com/patpaskoch/PaTiAdmin). PaTiAdmin is not a WoW addon — players do not install it. The shared UI code (PaTiShared) is already embedded in this addon's `Shared/` folder; there is nothing extra to install.
 
 ## License
+
 MIT — see [LICENSE](LICENSE). Copyright (c) 2026 Patrick Koch.
