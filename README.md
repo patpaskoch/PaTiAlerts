@@ -2,35 +2,25 @@
 
 <img src="assets/icon-128.png" width="96" alt="PaTiAlerts icon">
 
+## Install
+
+**📥 [Download PaTiAlerts Beta](https://github.com/patpaskoch/PaTiAlerts/releases/download/v0.1.0-beta.1/PaTiAlerts-0.1.0-beta.1.zip)** · [Installation guide](#installation)
+
+*Installation-test preview — not yet a stable release.*
+
 ## What is PaTiAlerts?
 
-> **Installation-test beta available:** [Download the current ZIP from Releases](https://github.com/patpaskoch/PaTiAlerts/releases). This is an unverified preview for testing the installation, not a stable release.
+**Know what needs attention. Skip the noise.**
 
-A small window for World of Warcraft: Forever (Interface 16001) that answers one question: **what needs my attention
-right now?** It lists the open problems the other PaTi addons report — and nothing else. An alert stays while the
-problem exists and disappears when it is solved. No combat log, no chat spam, no toasts, no automatic actions.
-
-> Status: 0.1.0, in development, not yet stable. Not yet tested in game.
+When a fight gets messy, the important things can get lost in the chaos. PaTiAlerts brings warnings from your other PaTi addons into one calm, clear place — so you notice the problem and decide what to do next.
 
 ## Features
 
-- One line per open problem, most urgent first: **red** critical, **yellow** warning, **blue** note
-- From **PaTiAggro:** enemies you lost (`1 Kultist → Healer`, critical) or barely hold (warning) — with the same number
-  that PaTiAggro shows in its panel and above the enemy's nameplate
-- From **PaTiAuras:** your watched buffs and (Shaman) weapon imbues that are missing or expiring (warning), and
-  watched group buffs someone lacks — one line per buff (`Power Word: Fortitude · Missing on 2`), names stay in the
-  PaTiAuras tooltip. "Unclear" data, offline and dead members never show up as missing
-- From **PaTiHeal:** party members with a debuff you can dispel (note)
-- A new alert (or one that got more severe) is highlighted once, briefly; nothing blinks
-- Hides itself when there is nothing to show (while locked); unlocked or in test mode it stays so you can place it
-- **Click a PaTiAuras row** (out of combat): a missing buff, weapon imbue or tracking is cast on you, a missing group
-  buff on the member PaTiAuras chose — exactly what a click on that line in PaTiAuras does. One click = one cast. In
-  combat the rows are not clickable (WoW does not let an addon change what a click casts while rows move)
-- Aggro rows are not clickable: to act on `1 Kultist`, click that enemy's nameplate marked "1" and taunt yourself
-- ••• menu: Settings, Lock, Collapse, Test Mode, Hide. Languages: English, Deutsch (others fall back to English)
-
-PaTiAlerts is **optional**: PaTiAggro, PaTiAuras and PaTiHeal work exactly the same without it. It only shows what
-they report while it is installed.
+- **The important stuff first:** Critical, warning and information alerts.
+- **Spot lost aggro:** See enemies that need a tank's attention.
+- **Catch missing buffs:** Notice effects that are missing or running out.
+- **Help your party:** See reported debuffs you can remove.
+- **No extra noise:** Alerts clear when the issue is gone; the addon is optional.
 
 ## Installation
 
@@ -55,6 +45,32 @@ they report while it is installed.
 - **Behaviour:** briefly highlight new alerts; hide automatically when empty
 - **General:** language, scale, window lock
 - **Window:** panel opacity (30–100 %)
+
+## Important notes
+
+> **Installation-test beta available:** [Download the current ZIP from Releases](https://github.com/patpaskoch/PaTiAlerts/releases). This is an unverified preview for testing the installation, not a stable release.
+
+> Status: 0.1.0, in development, not yet stable. Not yet tested in game.
+
+## Feature details
+
+- One line per open problem, most urgent first: **red** critical, **yellow** warning, **blue** note
+- From **PaTiAggro:** enemies you lost (`1 Kultist → Healer`, critical) or barely hold (warning) — with the same number
+  that PaTiAggro shows in its panel and above the enemy's nameplate
+- From **PaTiAuras:** your watched buffs and (Shaman) weapon imbues that are missing or expiring (warning), and
+  watched group buffs someone lacks — one line per buff (`Power Word: Fortitude · Missing on 2`), names stay in the
+  PaTiAuras tooltip. "Unclear" data, offline and dead members never show up as missing
+- From **PaTiHeal:** party members with a debuff you can dispel (note)
+- A new alert (or one that got more severe) is highlighted once, briefly; nothing blinks
+- Hides itself when there is nothing to show (while locked); unlocked or in test mode it stays so you can place it
+- **Click a PaTiAuras row** (out of combat): a missing buff, weapon imbue or tracking is cast on you, a missing group
+  buff on the member PaTiAuras chose — exactly what a click on that line in PaTiAuras does. One click = one cast. In
+  combat the rows are not clickable (WoW does not let an addon change what a click casts while rows move)
+- Aggro rows are not clickable: to act on `1 Kultist`, click that enemy's nameplate marked "1" and taunt yourself
+- ••• menu: Settings, Lock, Collapse, Test Mode, Hide. Languages: English, Deutsch (others fall back to English)
+
+PaTiAlerts is **optional**: PaTiAggro, PaTiAuras and PaTiHeal work exactly the same without it. It only shows what
+they report while it is installed.
 
 ## PaTiSuite
 
