@@ -4,11 +4,13 @@
 
 ## What is PaTiAlerts?
 
+> **Installation-test beta available:** [Download the current ZIP from Releases](https://github.com/patpaskoch/PaTiAlerts/releases). This is an unverified preview for testing the installation, not a stable release.
+
 A small window for World of Warcraft: Forever (Interface 16001) that answers one question: **what needs my attention
 right now?** It lists the open problems the other PaTi addons report — and nothing else. An alert stays while the
 problem exists and disappears when it is solved. No combat log, no chat spam, no toasts, no automatic actions.
 
-> Status: 0.1.0, in development, not yet released. Not yet tested in game.
+> Status: 0.1.0, in development, not yet stable. Not yet tested in game.
 
 ## Features
 
