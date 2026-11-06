@@ -3,7 +3,7 @@
 ## Notes: What needs your attention right now: open problems from the other PaTi addons
 ## Notes-deDE: Was gerade deine Aufmerksamkeit braucht: offene Probleme aus den anderen PaTi-Addons
 ## Author: PaTi
-## Version: 0.1.0
+## Version: 0.1.0-beta.1
 ## IconTexture: Interface\AddOns\PaTiAlerts\Media\icon
 ## SavedVariablesPerCharacter: PaTiAlertsDB
 
