@@ -216,7 +216,7 @@ local function buildSettings()
     local function filterBox(label, filters, key)
         return UI.CreateCheckbox(modal, label, {
             get = function() return DB[filters][key] ~= false end,
-            set = function(shown) DB[filters][key] = shown and nil or false; render() end,
+            set = function(shown) Logic.SetFilter(DB[filters], key, shown); render() end,
         })
     end
     local function box(label, key)

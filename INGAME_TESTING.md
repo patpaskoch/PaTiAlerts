@@ -68,6 +68,7 @@ Die Meldungen der Producer (PaTiAggro, PaTiAuras, PaTiHeal) werden in deren eige
 - [ ] PT-ALERTS-042 Quelle PaTiHeal an/aus
 - [ ] PT-ALERTS-043 Prioritäten kritisch / Warnungen / Hinweise einzeln an/aus
 - [ ] PT-ALERTS-044 Abgeschaltete Quelle: das Producer-Addon selbst arbeitet unverändert weiter
+- [ ] PT-ALERTS-045 Eine ausgeschaltete Quelle oder Priorität wieder anhaken: die Meldungen erscheinen wieder (Fix 2026-11-08, Retest nötig)
 
 ## SavedVariables
 

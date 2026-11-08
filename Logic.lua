@@ -49,6 +49,12 @@ function Logic.RestoreDefaults(db)
     return db
 end
 
+-- Pure: shows/hides one source or priority. A hidden entry is stored as false; showing it again must remove the
+-- key (the old `shown and nil or false` always gave false, so a filter could never be ticked again).
+function Logic.SetFilter(filters, key, shown)
+    if shown then filters[key] = nil else filters[key] = false end
+end
+
 -- Pure: should the window be visible? Hidden by the player wins; otherwise auto-hide only when there is nothing to
 -- show, the window is locked (an unlocked window stays so it can be placed) and test mode is off.
 function Logic.ShouldShow(db, count, testMode, hiddenByPlayer)
