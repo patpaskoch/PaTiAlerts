@@ -73,3 +73,13 @@ describe("Window settings (panel opacity)", function()
         assert.equal(0.75, db.opacity)
     end)
 end)
+
+describe("Logic.SetFilter", function()
+    it("hides with false and shows again by removing the key", function()
+        local Logic, f = load(), {}
+        Logic.SetFilter(f, "PaTiHeal", false)
+        assert.is_false(f.PaTiHeal)
+        Logic.SetFilter(f, "PaTiHeal", true)
+        assert.is_nil(f.PaTiHeal)
+    end)
+end)
