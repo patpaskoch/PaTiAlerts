@@ -49,6 +49,11 @@ function Logic.RestoreDefaults(db)
     return db
 end
 
+-- A checked box shows the source/priority again (key removed, missing = shown), an unchecked one stores false.
+function Logic.SetFilter(filters, key, shown)
+    if shown then filters[key] = nil else filters[key] = false end
+end
+
 -- Pure: should the window be visible? Hidden by the player wins; otherwise auto-hide only when there is nothing to
 -- show, the window is locked (an unlocked window stays so it can be placed) and test mode is off.
 function Logic.ShouldShow(db, count, testMode, hiddenByPlayer)

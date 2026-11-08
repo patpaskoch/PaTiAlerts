@@ -48,6 +48,16 @@ describe("Logic.RestoreDefaults", function()
     end)
 end)
 
+describe("Logic.SetFilter", function()
+    it("unchecked stores false, checked removes the key (shown again)", function()
+        local Logic, filters = load(), {}
+        Logic.SetFilter(filters, "PaTiAuras", false)
+        assert.is_false(filters.PaTiAuras)
+        Logic.SetFilter(filters, "PaTiAuras", true)
+        assert.is_nil(filters.PaTiAuras)
+    end)
+end)
+
 describe("Logic.ShouldShow", function()
     it("auto-hides only when empty, locked and not in test mode; a player's Hide always wins", function()
         local Logic = load()

@@ -3,6 +3,8 @@
 Format: `## [Unreleased]` / `## [x.y.z] - YYYY-MM-DD` with Added, Changed, Fixed, Removed, Known Issues.
 
 ## [Unreleased] — 0.1.0
+### Fixed
+- Settings: a source or priority filter could not be checked again (it stayed hidden); `Logic.SetFilter` + test.
 ### Added
 - Theme **Soft Fantasy** (PaTiShared, owner wish 2026-10-19): calm slate blue, grey and violet with a muted
   lavender accent — the fourth choice in the settings and in PaTiSuite.
