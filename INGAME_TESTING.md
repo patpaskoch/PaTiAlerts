@@ -27,8 +27,12 @@ Die Meldungen der Producer (PaTiAggro, PaTiAuras, PaTiHeal) werden in deren eige
 - [x] PT-ALERTS-003 Icon (Glocke) in der AddOn-Liste korrekt, keine weiße oder fehlende Textur
   - ✅ VERIFIED 2026-10-02
   - Owner: die Icons erscheinen im Spiel in der AddOn-Liste korrekt.
-- [ ] PT-ALERTS-004 Login ohne Lua-Fehler
-- [ ] PT-ALERTS-005 `/reload` ohne Lua-Fehler
+- [x] PT-ALERTS-004 Login ohne Lua-Fehler
+  - ✅ VERIFIED 2026-11-08
+  - Owner: /patitest 2× grün in-game (vor und nach /reload, 42 ok, 0 Fehler; 7 PaTi-Addons installiert)
+- [x] PT-ALERTS-005 `/reload` ohne Lua-Fehler
+  - ✅ VERIFIED 2026-11-08
+  - Owner: /patitest 2× grün in-game (vor und nach /reload, 42 ok, 0 Fehler; 7 PaTi-Addons installiert)
 
 ## Fenster
 
@@ -36,7 +40,9 @@ Die Meldungen der Producer (PaTiAggro, PaTiAuras, PaTiHeal) werden in deren eige
 - [x] PT-ALERTS-011 Test Mode `/pal test` zeigt Beispielmeldungen
   - ✅ VERIFIED 2026-09-30
 - [ ] PT-ALERTS-012 Fenster am Header verschieben (entsperrt)
-- [ ] PT-ALERTS-013 Position bleibt nach `/reload`
+- [x] PT-ALERTS-013 Position bleibt nach `/reload`
+  - ✅ VERIFIED 2026-11-08
+  - Owner: /patitest 2× grün in-game (vor und nach /reload, 42 ok, 0 Fehler; 7 PaTi-Addons installiert)
 - [ ] PT-ALERTS-014 Lock/Unlock (••• und `/pal lock` / `unlock`): gesperrt nicht verschiebbar
 - [ ] PT-ALERTS-015 Größe (Scale) wirkt
 - [ ] PT-ALERTS-016 Collapse/Expand über •••, Zustand bleibt nach `/reload`
@@ -101,7 +107,9 @@ Die Meldungen der Producer (PaTiAggro, PaTiAuras, PaTiHeal) werden in deren eige
 ## Combined
 
 - [ ] PT-ALERTS-090 Zusammen mit allen PaTi-Addons geladen: kein Lua-Fehler
-- [ ] PT-ALERTS-091 Keine Slash-Command-Kollision: `/pal` und `/palerts` antworten nur PaTiAlerts
+- [x] PT-ALERTS-091 Keine Slash-Command-Kollision: `/pal` und `/palerts` antworten nur PaTiAlerts
+  - ✅ VERIFIED 2026-11-08
+  - Owner: /patitest 2× grün in-game (vor und nach /reload, 42 ok, 0 Fehler; 7 PaTi-Addons installiert)
 - [ ] PT-ALERTS-092 Eigene Einstellungen speichern nur PaTiAlerts-Werte; Fenster erscheint in PaTiSuite
 
 ## Anklickbare Zeilen (2026-10-14)
