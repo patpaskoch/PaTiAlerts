@@ -79,7 +79,9 @@ Die Meldungen der Producer (PaTiAggro, PaTiAuras, PaTiHeal) werden in deren eige
 ## SavedVariables
 
 - [ ] PT-ALERTS-050 Einstellungen bleiben nach `/reload`
-- [ ] PT-ALERTS-051 Einstellungen bleiben nach Relog
+- [x] PT-ALERTS-051 Einstellungen bleiben nach Relog
+  - ✅ VERIFIED 2026-11-10
+  - Owner: 5 Spielsitzungen mit wiederholtem Einloggen, keine Auffälligkeiten
 - [ ] PT-ALERTS-052 „Standard wiederherstellen“ setzt die Einstellungen zurück
 
 ## Sprachen
