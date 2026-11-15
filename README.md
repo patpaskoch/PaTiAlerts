@@ -44,7 +44,7 @@ When a fight gets messy, the important things can get lost in the chaos. PaTiAle
 `/pal settings` or ••• → Settings:
 - **Sources:** PaTiAggro, PaTiAuras, PaTiHeal on/off (only what PaTiAlerts shows; the addons keep working)
 - **Priorities:** critical, warnings, notes on/off
-- **Behaviour:** briefly highlight new alerts; hide automatically when empty
+- **Behaviour:** briefly highlight new alerts; hide automatically when empty (off by default, only while locked)
 - **General:** language, scale, window lock
 - **Window:** panel opacity (30–100 %)
 

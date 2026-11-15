@@ -12,8 +12,9 @@ Addon facts: `../../PaTiAdmin/docs/ARCHITECTURE.md` · open issues: `../../PaTiA
   sync, sort, filters, cast validation; pure, tested) · `Clicks.lua` (secure click buttons over rows) ·
   `PaTiAlerts.lua` (window, API, settings, commands, events) · `Locales/` ·
   `Shared/` (PaTiShared, synced — never edit).
-- SavedVariables: `PaTiAlertsDB` (per character), schema 1: point, relativePoint, x, y, locked, collapsed, scale,
-  language, autoHide, pulseNew, sourceFilters { [source] = false }, priorityFilters { [priority] = false }.
+- SavedVariables: `PaTiAlertsDB` (per character), schema 3: point, relativePoint, x, y, locked, collapsed,
+  scale, language, autoHide (default off since schema 3), pulseNew, sourceFilters { [source] = false },
+  priorityFilters { [priority] = false }.
   **Alerts are never saved.**
 - Secure / combat-sensitive: `Clicks.lua` only. SecureActionButtons (type1 spell, spell1, unit) on a holder frame
   parented to UIParent — not children of the window, so the window stays movable and hideable in combat. The holder

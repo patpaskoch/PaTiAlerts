@@ -4,7 +4,7 @@ local _, ns = ...
 local Logic = {}
 ns.Logic = Logic
 
-Logic.SCHEMA = 2
+Logic.SCHEMA = 3
 Logic.SCALES = { 0.8, 0.9, 1, 1.1, 1.25, 1.5 }
 Logic.SOURCES = { "PaTiAggro", "PaTiAuras", "PaTiHeal" } -- producers offered in the source filter (V1)
 
@@ -16,7 +16,7 @@ Logic.DEFAULTS = {
     collapsed = false,
     scale = 1,
     language = "auto",
-    autoHide = true, -- hide the window while there is nothing to show (only when locked, never in test mode)
+    autoHide = false, -- opt-in (owner 2026-11-15): hide the window while empty, only when locked, never in test mode
     pulseNew = true, -- a short highlight when an alert appears or gets more severe
 }
 
@@ -38,6 +38,9 @@ function Logic.Migrate(db)
         if db.sourceFilters.PaTiAggro == nil then db.sourceFilters.PaTiAggro = db.sourceFilters.PaTiTank end
         db.sourceFilters.PaTiTank = nil
     end
+    -- Schema 3 (2026-11-15): auto-hide was on by default and hid an empty window the moment it was locked
+    -- (PT-ALERTS-014). Older saves only carry that default, so it is switched off once; the settings turn it back on.
+    if (tonumber(db.schema) or 0) < 3 then db.autoHide = false end
     db.schema = Logic.SCHEMA
     return db
 end
