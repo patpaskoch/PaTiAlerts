@@ -22,8 +22,12 @@ Die Meldungen der Producer (PaTiAggro, PaTiAuras, PaTiHeal) werden in deren eige
 
 ## Installation / Laden
 
-- [ ] PT-ALERTS-001 Fresh Install aus dem Release-ZIP: genau ein Ordner `PaTiAlerts/`, Addon lädt allein
-- [ ] PT-ALERTS-002 PaTiAlerts erscheint in der AddOn-Liste mit Beschreibung
+- [x] PT-ALERTS-001 Fresh Install aus dem Release-ZIP: genau ein Ordner `PaTiAlerts/`, Addon lädt allein
+  - ✅ VERIFIED 2026-11-15
+  - Owner: auf der Ingame-Testseite als „Geht“ abgehakt.
+- [x] PT-ALERTS-002 PaTiAlerts erscheint in der AddOn-Liste mit Beschreibung
+  - ✅ VERIFIED 2026-11-15
+  - Owner: auf der Ingame-Testseite als „Geht“ abgehakt.
 - [x] PT-ALERTS-003 Icon (Glocke) in der AddOn-Liste korrekt, keine weiße oder fehlende Textur
   - ✅ VERIFIED 2026-10-02
   - Owner: die Icons erscheinen im Spiel in der AddOn-Liste korrekt.
@@ -36,10 +40,14 @@ Die Meldungen der Producer (PaTiAggro, PaTiAuras, PaTiHeal) werden in deren eige
 
 ## Fenster
 
-- [ ] PT-ALERTS-010 `/pal` bzw. `/palerts` blendet das Fenster ein und aus; `/pal show`, `/pal hide`
+- [x] PT-ALERTS-010 `/pal` bzw. `/palerts` blendet das Fenster ein und aus; `/pal show`, `/pal hide`
+  - ✅ VERIFIED 2026-11-15
+  - Owner: auf der Ingame-Testseite als „Geht“ abgehakt.
 - [x] PT-ALERTS-011 Test Mode `/pal test` zeigt Beispielmeldungen
   - ✅ VERIFIED 2026-09-30
-- [ ] PT-ALERTS-012 Fenster am Header verschieben (entsperrt)
+- [x] PT-ALERTS-012 Fenster am Header verschieben (entsperrt)
+  - ✅ VERIFIED 2026-11-15
+  - Owner: auf der Ingame-Testseite als „Geht“ abgehakt.
 - [x] PT-ALERTS-013 Position bleibt nach `/reload`
   - ✅ VERIFIED 2026-11-08
   - Owner: /patitest 2× grün in-game (vor und nach /reload, 42 ok, 0 Fehler; 7 PaTi-Addons installiert)
