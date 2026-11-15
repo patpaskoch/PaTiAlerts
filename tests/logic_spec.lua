@@ -8,17 +8,19 @@ end
 describe("Logic.Migrate", function()
     it("creates the defaults for a new character", function()
         local db = load().Migrate(nil)
-        assert.same({ false, false, 1, "auto", true, true }, { db.locked, db.collapsed, db.scale, db.language, db.autoHide, db.pulseNew })
+        assert.same({ false, false, 1, "auto", false, true },
+            { db.locked, db.collapsed, db.scale, db.language, db.autoHide, db.pulseNew })
         assert.same({}, db.sourceFilters)
         assert.same({}, db.priorityFilters)
-        assert.equal(2, db.schema)
+        assert.equal(3, db.schema)
         assert.is_nil(db.alerts) -- alerts are never saved
     end)
 
     it("keeps saved values, also false, the filters and the position", function()
-        local db = load().Migrate({ autoHide = false, pulseNew = false, locked = true, collapsed = true, scale = 1.25,
-            x = 5, point = "TOPLEFT", sourceFilters = { PaTiHeal = false }, priorityFilters = { INFO = false } })
-        assert.same({ false, false, true, true, 1.25, 5, "TOPLEFT" },
+        local db = load().Migrate({ schema = 3, autoHide = true, pulseNew = false, locked = true, collapsed = true,
+            scale = 1.25, x = 5, point = "TOPLEFT", sourceFilters = { PaTiHeal = false },
+            priorityFilters = { INFO = false } })
+        assert.same({ true, false, true, true, 1.25, 5, "TOPLEFT" },
             { db.autoHide, db.pulseNew, db.locked, db.collapsed, db.scale, db.x, db.point })
         assert.same({ PaTiHeal = false }, db.sourceFilters)
         assert.same({ INFO = false }, db.priorityFilters)
@@ -31,6 +33,23 @@ describe("Logic.Migrate", function()
         assert.same({ PaTiAggro = true }, db.sourceFilters)
     end)
 
+    it("switches the old auto-hide default off once (schema 3, PT-ALERTS-014) and keeps a later choice", function()
+        local Logic = load()
+        local db = Logic.Migrate({ schema = 2, autoHide = true, locked = true })
+        assert.is_false(db.autoHide)
+        assert.is_true(Logic.ShouldShow(db, 0, false, false)) -- locked and empty: the window stays
+        assert.is_true(Logic.Migrate({ schema = 3, autoHide = true }).autoHide)
+        assert.is_false(Logic.Migrate({ schema = 3, autoHide = false }).autoHide)
+    end)
+
+    it("keeps a new or reset window visible when it is locked and empty (PT-ALERTS-014)", function()
+        local Logic = load()
+        assert.is_true(Logic.ShouldShow(Logic.Migrate({ locked = true }), 0, false, false))
+        local db = Logic.RestoreDefaults(Logic.Migrate({ schema = 3, autoHide = true }))
+        db.locked = true
+        assert.is_true(Logic.ShouldShow(db, 0, false, false))
+    end)
+
     it("repairs broken filter tables", function()
         local db = load().Migrate({ sourceFilters = "x", priorityFilters = 3 })
         assert.same({}, db.sourceFilters)
@@ -40,8 +59,8 @@ end)
 
 describe("Logic.RestoreDefaults", function()
     it("resets settings and filters, keeps the position", function()
-        local db = load().RestoreDefaults({ autoHide = false, scale = 1.5, x = 7, sourceFilters = { PaTiTank = false } })
-        assert.is_true(db.autoHide)
+        local db = load().RestoreDefaults({ autoHide = true, scale = 1.5, x = 7, sourceFilters = { PaTiTank = false } })
+        assert.is_false(db.autoHide)
         assert.equal(1, db.scale)
         assert.equal(7, db.x)
         assert.same({}, db.sourceFilters)

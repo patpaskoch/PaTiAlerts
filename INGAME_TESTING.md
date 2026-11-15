@@ -44,10 +44,17 @@ Die Meldungen der Producer (PaTiAggro, PaTiAuras, PaTiHeal) werden in deren eige
   - ✅ VERIFIED 2026-11-08
   - Owner: /patitest 2× grün in-game (vor und nach /reload, 42 ok, 0 Fehler; 7 PaTi-Addons installiert)
 - [ ] PT-ALERTS-014 Lock/Unlock (••• und `/pal lock` / `unlock`): gesperrt nicht verschiebbar
+  - ❌ FAIL 2026-11-15
+  - Owner: Beim Sperren verschwindet das Fenster; das soll nicht sein. Ursache: Auto-Hide war standardmäßig an.
+  - 🔧 FIX IMPLEMENTED 2026-11-15: Auto-Hide standardmäßig aus, alte Einstellungen einmalig umgestellt (Schema 3)
+  - MANUAL RETEST REQUIRED
 - [ ] PT-ALERTS-015 Größe (Scale) wirkt
 - [ ] PT-ALERTS-016 Collapse/Expand über •••, Zustand bleibt nach `/reload`
 - [ ] PT-ALERTS-017 Einstellungen öffnen (`/pal settings` und •••) und speichern
-- [ ] PT-ALERTS-018 Auto-Hide: gesperrt und leer → Fenster verschwindet; entsperrt oder im Test Mode bleibt es
+- [ ] PT-ALERTS-018 Auto-Hide in den Einstellungen eingeschaltet: gesperrt und leer → Fenster verschwindet; entsperrt
+  oder im Test Mode bleibt es (seit 2026-11-15 standardmäßig aus)
+- [ ] PT-ALERTS-022 Nach dem Update ohne Meldungen sperren (••• und `/pal lock`): Fenster bleibt sichtbar; in den
+  Einstellungen ist „Automatisch ausblenden, wenn leer“ aus
 - [ ] PT-ALERTS-093 Keine offenen Meldungen (nicht automatisch ausgeblendet): nur die Kopfzeile „PaTiAlerts“, kein Text
   „Nichts braucht gerade deine Aufmerksamkeit.“
   - Owner 2026-10-14: Text überflüssig → entfernt
