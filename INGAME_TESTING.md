@@ -145,3 +145,10 @@ Die Meldungen der Producer (PaTiAggro, PaTiAuras, PaTiHeal) werden in deren eige
   - MANUAL RETEST REQUIRED
 - [ ] PT-ALERTS-098 Fenster im Kampf verschieben und automatisch aus-/einblenden geht weiterhin ohne Fehler
   - MANUAL RETEST REQUIRED
+
+## Fenster bleibt stehen (2026-11-20)
+
+- [ ] PT-ALERTS-099 Kampf mit wechselnden Meldungen (Aggro verloren/zurück, Buff fehlt): die Kopfzeile bleibt genau an
+  ihrem Platz, das Fenster wächst und schrumpft nur nach unten; `/pal test` ein- und ausschalten ebenso
+- [ ] PT-ALERTS-100 Fenster verschieben, `/reload`: es steht wieder genau dort; beim ersten Einloggen nach dem Update
+  springt es nicht weg; kein Lua-Fehler

@@ -3,6 +3,9 @@
 Format: `## [Unreleased]` / `## [x.y.z] - YYYY-MM-DD` with Added, Changed, Fixed, Removed, Known Issues.
 
 ## [Unreleased] — 0.1.0
+### Fixed
+- The window no longer jumps in combat (owner 2026-11-20, PaTiShared): it grew up and down from its centre as alerts
+  came and went; now its top edge stays put and only the bottom moves.
 ### Added
 - Theme **Soft Fantasy** (PaTiShared, owner wish 2026-10-19): calm slate blue, grey and violet with a muted
   lavender accent — the fourth choice in the settings and in PaTiSuite.
