@@ -56,21 +56,39 @@ Die Meldungen der Producer (PaTiAggro, PaTiAuras, PaTiHeal) werden in deren eige
   - Owner: Beim Sperren verschwindet das Fenster; das soll nicht sein. Ursache: Auto-Hide war standardmäßig an.
   - 🔧 FIX IMPLEMENTED 2026-11-15: Auto-Hide standardmäßig aus, alte Einstellungen einmalig umgestellt (Schema 3)
   - MANUAL RETEST REQUIRED
-- [ ] PT-ALERTS-015 Größe (Scale) wirkt
-- [ ] PT-ALERTS-016 Collapse/Expand über •••, Zustand bleibt nach `/reload`
-- [ ] PT-ALERTS-017 Einstellungen öffnen (`/pal settings` und •••) und speichern
-- [ ] PT-ALERTS-018 Auto-Hide in den Einstellungen eingeschaltet: gesperrt und leer → Fenster verschwindet; entsperrt
+- [x] PT-ALERTS-015 Größe (Scale) wirkt
+  - ✅ VERIFIED 2026-11-21
+  - Owner: auf der Testseite mit „Geht“ bestätigt.
+- [x] PT-ALERTS-016 Collapse/Expand über •••, Zustand bleibt nach `/reload`
+  - ✅ VERIFIED 2026-11-21
+  - Owner: auf der Testseite mit „Geht“ bestätigt.
+- [x] PT-ALERTS-017 Einstellungen öffnen (`/pal settings` und •••) und speichern
+  - ✅ VERIFIED 2026-11-21
+  - Owner: auf der Testseite mit „Geht“ bestätigt.
+- [x] PT-ALERTS-018 Auto-Hide in den Einstellungen eingeschaltet: gesperrt und leer → Fenster verschwindet; entsperrt
   oder im Test Mode bleibt es (seit 2026-11-15 standardmäßig aus)
-- [ ] PT-ALERTS-022 Nach dem Update ohne Meldungen sperren (••• und `/pal lock`): Fenster bleibt sichtbar; in den
+  - ✅ VERIFIED 2026-11-21
+  - Owner: auf der Testseite mit „Geht“ bestätigt.
+- [x] PT-ALERTS-022 Nach dem Update ohne Meldungen sperren (••• und `/pal lock`): Fenster bleibt sichtbar; in den
   Einstellungen ist „Automatisch ausblenden, wenn leer“ aus
-- [ ] PT-ALERTS-093 Keine offenen Meldungen (nicht automatisch ausgeblendet): nur die Kopfzeile „PaTiAlerts“, kein Text
+  - ✅ VERIFIED 2026-11-21
+  - Owner: auf der Testseite mit „Geht“ bestätigt.
+- [x] PT-ALERTS-093 Keine offenen Meldungen (nicht automatisch ausgeblendet): nur die Kopfzeile „PaTiAlerts“, kein Text
   „Nichts braucht gerade deine Aufmerksamkeit.“
   - Owner 2026-10-14: Text überflüssig → entfernt
   - 🔧 FIX IMPLEMENTED 2026-10-14
   - MANUAL RETEST REQUIRED
-- [ ] PT-ALERTS-019 Panel-Deckkraft 30–100 %: nur der Hintergrund ändert sich
-- [ ] PT-ALERTS-020 Keine Einrast-Einstellung mehr, Fenster frei verschiebbar
-- [ ] PT-ALERTS-021 `/pal reset` setzt die Position zurück
+  - ✅ VERIFIED 2026-11-21
+  - Owner: auf der Testseite mit „Geht“ bestätigt.
+- [x] PT-ALERTS-019 Panel-Deckkraft 30–100 %: nur der Hintergrund ändert sich
+  - ✅ VERIFIED 2026-11-21
+  - Owner: auf der Testseite mit „Geht“ bestätigt.
+- [x] PT-ALERTS-020 Keine Einrast-Einstellung mehr, Fenster frei verschiebbar
+  - ✅ VERIFIED 2026-11-21
+  - Owner: auf der Testseite mit „Geht“ bestätigt.
+- [x] PT-ALERTS-021 `/pal reset` setzt die Position zurück
+  - ✅ VERIFIED 2026-11-21
+  - Owner: auf der Testseite mit „Geht“ bestätigt.
 
 ## Prioritäten
 
@@ -78,9 +96,15 @@ Die Meldungen der Producer (PaTiAggro, PaTiAuras, PaTiHeal) werden in deren eige
 - [ ] PT-ALERTS-031 WARNING gelb
 - [ ] PT-ALERTS-032 INFO blau
 - [ ] PT-ALERTS-033 Dringendste Meldung oben
-- [ ] PT-ALERTS-034 Neue (oder schwerer gewordene) Meldung: kurzer einmaliger Pulse
-- [ ] PT-ALERTS-035 Kein permanentes Blinken
-- [ ] PT-ALERTS-036 Einstellung „kurz hervorheben“ aus → kein Pulse
+- [x] PT-ALERTS-034 Neue (oder schwerer gewordene) Meldung: kurzer einmaliger Pulse
+  - ✅ VERIFIED 2026-11-21
+  - Owner: auf der Testseite mit „Geht“ bestätigt.
+- [x] PT-ALERTS-035 Kein permanentes Blinken
+  - ✅ VERIFIED 2026-11-21
+  - Owner: auf der Testseite mit „Geht“ bestätigt.
+- [x] PT-ALERTS-036 Einstellung „kurz hervorheben“ aus → kein Pulse
+  - ✅ VERIFIED 2026-11-21
+  - Owner: auf der Testseite mit „Geht“ bestätigt.
 
 ## Filter
 
